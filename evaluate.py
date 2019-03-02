@@ -28,10 +28,12 @@ VAE_model.train_vae(gene_data, 'Saved-Models/Encoders/vae_encoder_zebrafish50tes
 AE_model.train_ae(gene_data, 'Saved-Models/Encoders/ae_encoder_zebrafish50test.h5',
                   'Saved-Models/Decoders/ae_decoder_zebrafish50test.h5')
 
-DisentangledVAE_model_dim_reduction = DisentangledVAE_model.dimensionality_reduction(gene_data,
-                                                                                     'Saved-Models/Encoders/disentangled_vae_encoder_zebrafish50.h5')
-VAE_model_dim_reduction = VAE_model.dimensionality_reduction(gene_data,
-                                                             'Saved-Models/Encoders/vae_encoder_zebrafish50.h5')
+DisentangledVAE_model_dim_reduction = DisentangledVAE_model.dimensionality_reduction(
+    gene_data,
+    'Saved-Models/Encoders/disentangled_vae_encoder_zebrafish50.h5')
+VAE_model_dim_reduction = VAE_model.dimensionality_reduction(
+    gene_data,
+    'Saved-Models/Encoders/vae_encoder_zebrafish50.h5')
 AE_dim_reduction = AE_model.dimensionality_reduction(gene_data, 'Saved-Models/Encoders/ae_encoder_zebrafish50.h5')
 
 compute_diff_capacity_latent_dim(VAE_model_dim_reduction, labels, model='DiffVAE')

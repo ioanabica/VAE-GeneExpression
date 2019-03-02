@@ -31,11 +31,13 @@ def shift_latent_dimensions(data, num_std, latent_dimensions):
 
 
 def change_cell_type(cell_data, num_std, latent_dimensions):
-    cell_dim_reduction = DisentangledDiffVAE.dimensionality_reduction(cell_data,
-                                                                      'Saved-Models/Encoders/disentangleddisentangled_vae_encoder_zebrafish50.h5')
+    cell_dim_reduction = DisentangledDiffVAE.dimensionality_reduction(
+        cell_data,
+        'Saved-Models/Encoders/disentangleddisentangled_vae_encoder_zebrafish50.h5')
     cell_shifted = shift_latent_dimensions(cell_dim_reduction, num_std, latent_dimensions)
-    cell_reconstructed = DisentangledDiffVAE.reconstruction(cell_shifted,
-                                                            'Saved-Models/Decoders/disentangled_vae_decoder_zebrafish50.h5')
+    cell_reconstructed = DisentangledDiffVAE.reconstruction(
+        cell_shifted,
+        'Saved-Models/Decoders/disentangled_vae_decoder_zebrafish50.h5')
     NN_predictions = np.argmax(NN_for_cells.nn_model.predict(cell_reconstructed), axis=1)
 
     num_cells = NN_predictions.shape[0]
@@ -53,5 +55,6 @@ cell_erytro_data = get_zebrafish_cell_type('Erythrocytes')
 # latent_dimensions encoding differentiation of Neutrophils: [2, 11, 33, 40, 45]
 latend_dimensions_to_change = [2, 11, 33, 40, 45]
 lambda_std = 1
-transformed_hspcs, percentage_transformed_hspc = change_cell_type(hspc_data, num_std=lambda_std,
-                                                                  latent_dimensions=latend_dimensions_to_change)
+transformed_hspcs, percentage_transformed_hspc = change_cell_type(
+    hspc_data, num_std=lambda_std,
+    latent_dimensions=latend_dimensions_to_change)

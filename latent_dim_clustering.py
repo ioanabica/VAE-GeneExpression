@@ -73,23 +73,8 @@ def evaluate_clustering_for_all_models(laten_dim, gene_data, labels, embedding_t
                                                          num_clusters=5, embedding_type=embedding_type,
                                                          clustering_type=clustering_type)
 
-    """
-    if embedding_type is not 'TSNE':
-        results['Original'] = compute_results_with_standard_error(gene_data, labels,
-                                                        num_clusters=5, embedding_type=embedding_type,
-                                                        clustering_type=clustering_type)
-    """
-
     for model in results.keys():
         results_mean_std[model] = [np.mean(results[model]),
                                    np.std(results[model]) / math.sqrt(50.0)]
 
     return results, results_mean_std
-
-
-"""
-results, results_mean_std = evaluate_clustering_for_all_models(laten_dim=50, gene_data=gene_data,
-                                   labels=labels, embedding_type='none', clustering_type='gaussian')
-print results
-print results_mean_std
-"""

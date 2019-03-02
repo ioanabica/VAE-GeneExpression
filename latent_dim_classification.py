@@ -87,12 +87,15 @@ def evaluate_SVM_classification(gene_data, labels):
         AE_model.train_ae(gene_data, 'Saved-Models/Encoders/ae_encoder_zebrafish.h5',
                           'Saved-Models/Decoders/ae_decoder_zebrafish.h5')
 
-        InfoVAE_model_dim_reduction = DisentangledDiffVAE_model.dimensionality_reduction(gene_data,
-                                                                                         'Saved-Models/Encoders/info_vae_encoder_zebrafish.h5')
-        VAE_model_dim_reduction = DiffVAE_model.dimensionality_reduction(gene_data,
-                                                                         'Saved-Models/Encoders/vae_encoder_zebrafish.h5')
-        AE_dim_reduction = AE_model.dimensionality_reduction(gene_data,
-                                                             'Saved-Models/Encoders/ae_encoder_zebrafish.h5')
+        InfoVAE_model_dim_reduction = DisentangledDiffVAE_model.dimensionality_reduction(
+            gene_data,
+            'Saved-Models/Encoders/info_vae_encoder_zebrafish.h5')
+        VAE_model_dim_reduction = DiffVAE_model.dimensionality_reduction(
+            gene_data,
+            'Saved-Models/Encoders/vae_encoder_zebrafish.h5')
+        AE_dim_reduction = AE_model.dimensionality_reduction(
+            gene_data,
+            'Saved-Models/Encoders/ae_encoder_zebrafish.h5')
         PCA_result = PCA_dim_reduction(gene_data, gene_data, n_components=latent_dim)
 
         results_latent_dim[latent_dim]['DiffVAE'] = SVM_classification(VAE_model_dim_reduction, labels)
@@ -130,10 +133,12 @@ def evaluate_NN_classification(gene_data, labels):
         AE_model.train_ae(gene_data, 'Saved-Models/Encoders/ae_encoder_zebrafish.h5',
                           'Saved-Models/Decoders/ae_decoder_zebrafish.h5')
 
-        InfoVAE_model_dim_reduction = DisentangledDiffVAE_model.dimensionality_reduction(gene_data,
-                                                                                         'Saved-Models/Encoders/info_vae_encoder_zebrafish.h5')
-        VAE_model_dim_reduction = DiffVAE_model.dimensionality_reduction(gene_data,
-                                                                         'Saved-Models/Encoders/vae_encoder_zebrafish.h5')
+        InfoVAE_model_dim_reduction = DisentangledDiffVAE_model.dimensionality_reduction(
+            gene_data,
+            'Saved-Models/Encoders/info_vae_encoder_zebrafish.h5')
+        VAE_model_dim_reduction = DiffVAE_model.dimensionality_reduction(
+            gene_data,
+            'Saved-Models/Encoders/vae_encoder_zebrafish.h5')
         AE_dim_reduction = AE_model.dimensionality_reduction(gene_data,
                                                              'Saved-Models/Encoders/ae_encoder_zebrafish.h5')
         PCA_result = PCA_dim_reduction(gene_data, gene_data, n_components=latent_dim)
