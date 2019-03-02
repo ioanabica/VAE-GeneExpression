@@ -1,6 +1,6 @@
+from keras.models import load_model
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE, SpectralEmbedding
-from keras.models import load_model
 
 
 def PCA_dim_reduction(train_data, input_data, n_components):

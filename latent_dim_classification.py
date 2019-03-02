@@ -1,15 +1,16 @@
+import pickle
+
 import numpy as np
+from keras.utils import np_utils
 from sklearn import svm
-from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import cross_val_score
 
-from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
 from autoencoder_models.SimpleAutoEncoder import SimpleAutoEncoder
+from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
 from dimensionality_reduction import PCA_dim_reduction
 from neural_network_models.neural_network import NeuralNetwork
-import pickle
-from keras.utils import np_utils
 
 
 def write_results_to_file(filename, data):

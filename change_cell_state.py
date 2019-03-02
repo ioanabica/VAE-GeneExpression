@@ -1,7 +1,8 @@
+import numpy as np
+
+from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
 from data.data_processing import get_zebrafish_hspc, get_zebrafish_diff_data, \
     get_zebrafish_cell_type
-from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
-import numpy as np
 from neural_network_models.neural_network import NeuralNetwork
 
 gene_data, labels = get_zebrafish_diff_data()

@@ -1,6 +1,6 @@
-from data.data_processing import get_zebrafish_data
-from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
 from autoencoder_models.SimpleAutoEncoder import SimpleAutoEncoder
+from autoencoder_models.VAE_models import DiffVAE, DisentangledDiffVAE
+from data.data_processing import get_zebrafish_data
 from evaluation.latent_dim_metrics import compute_diff_capacity_latent_dim
 
 gene_data, labels = get_zebrafish_data()

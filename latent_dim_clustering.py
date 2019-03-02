@@ -1,10 +1,12 @@
-from dimensionality_reduction import TSNE_embedding, AE_dim_reduction, Spectral_embedding, PCA_dim_reduction
-from sklearn.mixture import GaussianMixture
-from sklearn.metrics import adjusted_rand_score
-from sklearn.cluster import KMeans
-from data.data_processing import get_zebrafish_data, get_zebrafish_diff_data
-import numpy as np
 import math
+
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score
+from sklearn.mixture import GaussianMixture
+
+from data.data_processing import get_zebrafish_data
+from dimensionality_reduction import TSNE_embedding, AE_dim_reduction, PCA_dim_reduction
 
 gene_data, labels = get_zebrafish_data()
 
